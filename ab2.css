@@ -1,0 +1,140 @@
+#banner1{
+        font-family: fantasy;
+		font-size: 16px;
+		background: white;
+		width:20%;
+		height:20px;
+		margin-top:0px;
+		text-align:center;	
+		float:left;
+        border-width: thick;
+        border-style: solid;
+}
+#banner2{
+	    
+        font-family: fantasy;
+		font-size: 16px;
+		background: white;
+		width:20%;
+		height:20px;
+		margin-top:0px;
+		text-align:center;	
+		float:left;
+        border-width: thick;
+        border-style: solid;
+}
+#banner3{
+        font-family: fantasy;
+		font-size: 16px;
+		background: white;
+		width:20%;
+		height:20px;
+		margin-top:0px;
+		text-align:center;	
+		float:left;
+        border-width: thick;
+        border-style: solid;
+}
+#banner4{
+        font-family: fantasy;
+		font-size: 16px;
+		background: white;
+		width:20%;
+		height:20px;
+		margin-top:0px;
+		text-align:center;	
+		float:left;
+        border-width: thick;
+        border-style: solid;
+}
+#banner5{
+        font-family: fantasy;
+		font-size: 16px;
+		background: white;
+		width:16%;
+		height:20px;
+		margin-top:0px;
+		text-align:center;	
+		float:right;
+        border-width: thick;
+        border-style: solid;
+}
+
+
+#UCC{ 
+     border-width:15px;
+     border-style:solid;
+     border-color:black;
+     background:#A00000;
+     font-family: fantasy;
+     font-size: 50px;
+     color: white;
+     width:100%;
+     height: 100px;
+     text-align:center;
+     margin-top:15px;
+
+}
+
+#label{ 
+       border-width: 15px;
+       border-style: solid;
+       border-color:black;
+       background:#A00000;
+       font-family: fantasy;
+	   font-size: 45px;
+	   color: white;
+       width:100%;
+       height: 100px;
+       margin-top:15px;
+
+
+}
+
+#woah {
+	   border-width: 10px;
+       border-style: solid;
+       border-color:black;
+       background:#A00000;
+       font-family: fantasy;
+	   font-size: 30px;
+	   color: white;
+       width:20%;
+       height: 78px;
+       margin-top:15px;
+      
+}
+
+#cool{
+	   border-width: 5px;
+       border-style: solid;
+       border-color:black;
+       background: white;
+       font-family: serif;
+	   font-size: 25px;
+	   color: black;
+       width:75%;
+       height:75%;
+       margin-top:15px;
+	   float: center;
+}
+#cool2{
+	   border-width: 5px;
+       border-style: solid;
+       border-color:black;
+       background: white;
+       font-family: serif;
+	   color: black;
+       width:50%;
+       height:75%;
+       margin-top:15px;
+	   float: center;
+}
+
+#head {
+       background:black;
+       font-family: serif;
+	   color: white;
+       
+
+

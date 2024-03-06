@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>checkbox test</title>
+		
+			<script language="javascript">
+			
+			function testButton (form){
+					 var i;
+					if (form1.level.value =="1st Year")
+					alert("1st Year");
+					else if (form1.level.value == "2nd Year")
+					alert("second Year");
+					else if (form1.level.value == "3rd Year")
+					alert("third Year");
+					else
+					alert("fourth Year");
+					}
+
+			
+			function testbutton (form2){
+				 if(form2.check1.checked)
+				alert("checkbox 1 selected");
+				 if (form2.check2.checked)
+				alert("checkbox 2 selected");
+				 if (form2.check3.checked)
+				alert("checkbox 3 selected");
+				 }
+			</script>
+
+	<body>
+		<form name ="testform">
+			<input type ="radio" name ="level" value="1st Yr" checked> 1st Yr</br>
+			<input type ="radio" name ="level" value="2nd Yr" > 2nd Yr</br>
+			<input type ="radio" name ="level" value="3rd Yr" > 3rd Yr</br>
+			<input type ="radio" name ="level" value="4th Yr" > 4th Yr</br>
+			<input type ="radio" name ="level" value="5th Yr" disabled > 5th Yr</br>
+			
+			
+			<input type ="checkbox" name ="check1" value="check1" > checkbox1</br>
+			<input type ="checkbox" name ="check2" value="check1" > checkbox2</br>
+			<input type ="checkbox" name ="check3" value="check3" > checkbox3</br>
+			<input type ="button" name ="button" value="click" onclick="testbutton(this.form)">
+			
+		</form>
+		
+	</body>
+</html>

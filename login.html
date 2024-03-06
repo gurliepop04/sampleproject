@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="login.css" type="text/css">
+    <link rel="icon" type="image" href="we.png">
+    <script>
+        var attempt = 0; // starting point of attempts available for username/password
+        var maxA = 3; // maximum number of attempts for username/password
+			function display(form) {
+				var user1 = form.username1.value;
+				var password = form.password.value;
+				var userType = form.Usert.value;
+				var password_length = password.trim().length;
+				var username_length = user1.trim().length;
+
+				if (attempt >= maxA) {
+					document.getElementById("errormsg2").innerHTML = "Login attempts exceeded. Try again later.";
+					document.getElementById("errormsg2").style.color = "red"; // Set text color to red
+					document.getElementById("errormsg").innerHTML = "";
+					document.getElementById("errormsg1").innerHTML = "Attempts Left: " + (maxA - attempt);
+
+					form.username1.disabled = true;
+					form.password.disabled = true;
+				} else {
+					if (attempt > 0) {
+						document.getElementById("errormsg1").innerHTML = "Attempts Left: " + (maxA - attempt);
+					}
+
+					if (username_length < 5 || username_length > 8 || username_length === 0) {
+						document.getElementById("errormsg").innerHTML = "Invalid Username (username must be between 5 and 8 letters and not empty)";
+						document.getElementById("errormsg").style.color = "red"; // Set text color to red
+						document.getElementById("errormsg1").innerHTML = "Attempts Left: " + (maxA - attempt);
+						document.getElementById("errormsg2").innerHTML = "";
+						attempt++;
+					} else if (userType === "Admin" && (password_length < 5 || password_length > 8 || !(user1 === "admin" && password === "admin1"))) {
+						document.getElementById("errormsg3").innerHTML = "Please Enter Valid Credentials"; // for password
+						document.getElementById("errormsg3").style.color = "red";
+						attempt++;
+					} else if (userType === "Student" && (password_length !== 6 || !containsOnlyDigits(password))) {
+						document.getElementById("errormsg2").innerHTML = "Invalid Password for Student (must contain any 6-digit numbers and no other characters)";
+						document.getElementById("errormsg1").innerHTML = "Attempts Left: " + (maxA - attempt);
+						document.getElementById("errormsg").innerHTML = "";
+						document.getElementById("errormsg3").innerHTML = "";
+						document.getElementById("errormsg2").style.color = "red";
+						attempt++;
+					} else if (userType === "Faculty" && (!containsNumber(password) || !containsUppercase(password) || password_length !== 6)) {
+						document.getElementById("errormsg2").innerHTML = "Invalid Password for Faculty (must contain at least one number, at least one uppercase, and must be 6 characters)";
+						document.getElementById("errormsg1").innerHTML = "Attempts Left: " + (maxA - attempt);
+						document.getElementById("errormsg").innerHTML = "";
+						document.getElementById("errormsg3").innerHTML = "";
+						document.getElementById("errormsg2").style.color = "red";
+						attempt++;
+					} else {
+						document.getElementById("errormsg2").innerHTML = "You have Successfully logged in"; // for password
+						document.getElementById("errormsg2").style.color = "green"; // Set text color to green for success
+						document.getElementById("errormsg").innerHTML = "";
+						document.getElementById("errormsg3").innerHTML = "";
+
+						alert("Successfully logged in");
+
+						window.location.href = 'index.html?username=' + encodeURIComponent(user1); // going to home page
+					}
+				}
+			}
+
+
+        function containsOnlyDigits(value) {
+            for (var i = 0; i < value.length; i++) {
+                if (value[i] < '0' || value[i] > '9') {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function containsNumber(value) {
+            for (var i = 0; i < value.length; i++) {
+                if (value[i] >= '0' && value[i] <= '9') {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function containsUppercase(value) {
+            for (var i = 0; i < value.length; i++) {
+                if (value[i] >= 'A' && value[i] <= 'Z') {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function clearForm(form) {
+            form.username1.value = "";
+            form.password.value = "";
+            form.Usert.value = "Admin"; // Reset the dropdown to the default value
+            document.getElementById("errormsg").innerHTML = "";
+            document.getElementById("errormsg2").innerHTML = "";
+            document.getElementById("errormsg3").innerHTML = "";
+        }
+    </script>
+</head>
+
+<body style="background-image: url(loginbg.jpg); background-size: cover;">
+
+    <div id="header"></div>
+
+    <center>
+        <div id="box">
+
+            <img src="we.png" width="60px">
+            <form name="myform" action="" method="get">
+                <p style="font-family: fantasy;  font-size: 15px;">
+                    Username : <input type="text" name="username1" value="" placeholder="Type Your Username">
+                </p>
+
+                <p id="errormsg"></p>
+
+                <p style="font-family: fantasy; font-size: 15px;">
+                    Password : <input type="password" name="password" value="" placeholder="Type Your Password">
+                </p>
+                <p id="errormsg2"></p>
+                <p id="errormsg3"></p>
+                <p id="errormsg1"></p>
+                <p style="font-family: fantasy; font-size: 15px;">
+                    User Type:
+                    <select name="Usert">
+                        <option value="Admin">Admin</option>
+                        <option value="Student">Student</option>
+                        <option value="Faculty">Faculty</option>
+                    </select> <br />
+
+                    <input type="button" name="button" value="Login" onclick="display(this.form)"
+                        style="background-color: rgb(208,0,0,0.9);  font-family:fantasy; margin-top: 10px;">
+                    <input type="button" name="button" value="Clear" onclick="clearForm(this.form)"
+                        style="background-color: rgb(208,0,0,0.9);  font-family:fantasy; margin-top: 10px;">
+            </form>
+        </div>
+    </center>
+    </div>
+</body>
+
+</html>
